@@ -151,14 +151,14 @@ p {
 
 .nav-underline::after {
   position: absolute;
-    content: '';
-    display: block;
-    width: 100%;
-    height: 4px;
-    left: 0;
-    bottom: 0;
-    background-color: var(--link-color-hover);
-    border-radius: 2px;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  left: 0;
+  bottom: 0;
+  background-color: var(--link-color-hover);
+  border-radius: 2px;
 }
 
 .address {
@@ -245,6 +245,8 @@ p {
   background: var(--hero-button-background-hover-color);
 }
 
+/* Modal */
+
 .backdrop {
   position: fixed;
   top: 0;
@@ -264,6 +266,7 @@ p {
   position: absolute;
   width: 408px;
   min-height: 576px;
+  padding: 24px;
   background-color: #fcfcfc;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -281,10 +284,8 @@ p {
   width: 24px;
   height: 24px;
   margin-left: auto;
-  margin-top: 24px;
-  margin-right: 24px;
   border-radius: 50%;
-  background-color: var( --footer-text-color);
+  background-color: var(--footer-text-color);
   border: 1px solid rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: var(--transition);
@@ -292,13 +293,162 @@ p {
 
 .modal-close:is(:hover, :focus) {
   background-color: var(--background-button-hover-color);
-  border-radius: 50%;
-  fill: var( --button-text-hover-color);
+  fill: var(--button-text-hover-color);
 }
 
 .icon-modal-close {
   width: 8px;
-  height: 8px; 
+  height: 8px;
+}
+
+.modal-title {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: calc(24 / 16);
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: var(--title-subtitle-color);
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+
+.modal-form-input {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.modal-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  column-gap: 4px;
+}
+
+.modal-label {
+  font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
+    color: var(--customers-icons-color);
+    margin-bottom: 4px;
+}
+
+.modal-input-container {
+  position: relative;
+  display: block;
+}
+
+.modal-input {
+  width: 100%;
+  height: 40px;
+  padding: 11px 34px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  color: var(--title-subtitle-color);
+  transition: border-color var(--transition);
+}
+
+.modal-input:is(:hover, :focus) {
+  border-color: var(--button-text-color);
+}
+
+.modal-input:hover + .modal-input-icon,
+.modal-input:focus + .modal-input-icon {
+  fill: var(--button-text-color);
+}
+
+.modal-input-icon {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+  transition: fill var(--transition);
+}
+
+.modal-textarea {
+  padding: 8px 16px;
+    height: 120px;
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+    resize: none;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
+    color: var(--title-subtitle-color);
+}
+
+.modal-policy-label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.policy-input {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
+.policy-checkbox {
+  width: 16px;
+    height: 16px;
+    border: 1px solid var(--title-subtitle-color);
+    border-radius: 2px;
+    transition: background-color var(--transition),
+    background-image var(--transition),
+    border var(--transition);
+}
+
+.policy-input:checked + .policy-checkbox {
+  border-color: transparent;
+    background-color: var(--link-color-hover);
+    background-image: url(../images/Check.svg);
+    background-repeat: no-repeat;
+    background-size: 10px 8px;
+    background-position: center;
+    background-origin: border-box;
+}
+
+.modal-policy-text {
+  margin-left: 8px;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
+    color: var(--customers-icons-color);
+}
+
+.modal-policy-link {
+  color: var(--button-text-color);
+}
+
+.modal-send-btn {
+    display: block;
+    width: 169px;
+    height: 56px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 16px 32px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--button-text-color);
+    color: var(--button-text-hover-color);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    transition: background-color var(--transition);
+    cursor: pointer;
 }
 
 /* About */
@@ -552,6 +702,7 @@ p {
 .footer-soc-container {
   display: flex;
   flex-direction: column;
+  margin-right: 80px;
 }
 
 .footer-logo {
@@ -615,6 +766,60 @@ p {
 .footer-soc-link:hover,
 .footer-soc-link:focus {
   background-color: var(--footer-background-icons-hover-color);
+}
+
+.footer-subscribe {
+  width: 453px;
+}
+
+.subscribe-title {
+  margin-bottom: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: var(--button-text-hover-color);
+}
+
+.subscribe-form {
+  display: flex;
+  column-gap: 24px;
+}
+
+.subscribe-input {
+  width: 264px;
+  display: block;
+  padding: 8px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+    border-radius: 4px;
+    background-color: var(--footer-background-color);
+    font-size: 12px;
+    line-height: 2;
+    color: var(--button-text-hover-color);
+}
+
+.subscribe-btn {
+  display: flex;
+    column-gap: 16px;
+    padding: 8px 24px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--button-text-color);
+    color: var(--button-text-hover-color);
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: background-color var(--transition);
+}
+
+.subscribe-btn:hover,
+.subscribe-btn:focus {
+  background-color: var(--background-button-hover-color);
+}
+
+.subscribe-icon {
+  fill: var(--button-text-hover-color);
 }
 
 /* Portfolio */
