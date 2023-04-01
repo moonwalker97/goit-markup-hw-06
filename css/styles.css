@@ -451,6 +451,12 @@ p {
     cursor: pointer;
 }
 
+.modal-send-btn:hover,
+.modal-send-btn:focus {
+  color: var(--hero-button-color);
+  background: var(--hero-button-background-hover-color);
+}
+
 /* About */
 
 .about-list {
